@@ -19,8 +19,18 @@ func count(grid [][]int, i, j int) int {
 		count(grid, i, j-1)
 }
 
-func Count(grid [][]int) int {
+func Count(_grid [][]int) int {
 	result := 0
+
+	grid := make([][]int, len(_grid))
+
+	for i := 0; i < len(_grid); i++ {
+		grid[i] = make([]int, len(_grid[i]))
+
+		for j := 0; j < len(_grid[i]); j++ {
+			grid[i][j] = _grid[i][j]
+		}
+	}
 
 	for i := 0; i < len(grid); i++ {
 		for j := 0; j < len(grid[i]); j++ {
