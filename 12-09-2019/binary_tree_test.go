@@ -16,7 +16,7 @@ func TestGetRightValues(t *testing.T) {
 	actual := GetRightValues(input...)
 
 	if !reflect.DeepEqual(expect, actual) {
-		t.Errorf("%v != %v", expect, actual)
+		t.Errorf("Expect != actual (%v != %v)", expect, actual)
 	}
 
 }
