@@ -5,8 +5,9 @@ $RAISE_SUBPROC_ERROR = True
 from datetime import datetime
 
 date_str = datetime.now().strftime("%d-%m-%Y")
+header = "package solution"
 
-mkdir @(date_str)
+mkdir -p @(date_str)
 touch @(date_str)/README.md
-touch @(date_str)/solution.go
-touch @(date_str)/solution_test.go
+echo @(header) > @(date_str)/solution.go
+echo @(header) > @(date_str)/solution_test.go
