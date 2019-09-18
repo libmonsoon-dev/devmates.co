@@ -1,5 +1,12 @@
 #!/usr/bin/env xonsh
 
+$RAISE_SUBPROC_ERROR = True
+
 from datetime import datetime
 
-mkdir @(datetime.now().strftime("%d-%m-%Y")) && touch @(datetime.now().strftime("%d-%m-%Y"))/README.md
+date_str = datetime.now().strftime("%d-%m-%Y")
+
+mkdir @(date_str)
+touch @(date_str)/README.md
+touch @(date_str)/solution.go
+touch @(date_str)/solution_test.go
