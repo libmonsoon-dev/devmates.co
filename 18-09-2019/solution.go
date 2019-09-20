@@ -1,21 +1,20 @@
 package solution
 
-const arrLen = 3
+type permutation []int
+type permutations = []permutation
 
-type permutation [arrLen]int
-type permutations = map[permutation]struct{}
-
-func Solution(input permutation) permutations {
-	result := make(permutations)
+func Solution(input []int) permutations {
+	arrLen := len(input)
+	result := make(permutations, 0, arrLen)
 
 	for i := range input {
-		p := permutation{}
+		p := make(permutation, arrLen)
 		for j := 0; j < arrLen; j++ {
 			index := (i + j) % arrLen
 			p[j] = input[index]
 		}
 
-		result[p] = struct{}{}
+		result = append(result, p)
 	}
 
 	return result
