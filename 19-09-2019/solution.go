@@ -66,8 +66,7 @@ func Solution(n int) []string {
 
 		}
 
-		builders = nextStepBuilders
-		nextStepBuilders = nil
+		builders, nextStepBuilders = nextStepBuilders, nil
 	}
 
 	result := make([]string, 0, len(nextStepBuilders))
