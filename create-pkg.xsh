@@ -12,8 +12,7 @@ touch @(date_str)/README.md
 echo @(header + '''
 func Solution(input interface{}) interface{} {
 	return nil
-}
-''') > @(date_str)/solution.go
+}''') > @(date_str)/solution.go
 
 echo @(header + '''
 import "testing"
@@ -24,5 +23,4 @@ func TestSolution(t *testing.T) {
 			t.Errorf("expect != actual (%#v != %#v)", expect, actual)
 		}
 	}
-}
-''') > @(date_str)/solution_test.go
+}''') > @(date_str)/solution_test.go
