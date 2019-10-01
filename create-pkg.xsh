@@ -4,7 +4,7 @@ $RAISE_SUBPROC_ERROR = True
 
 from datetime import datetime
 
-date_str = datetime.now().strftime("%d-%m-%Y")
+date_str = datetime.now().strftime("%Y-%m-%d")
 header = "package solution"
 
 mkdir -p @(date_str)

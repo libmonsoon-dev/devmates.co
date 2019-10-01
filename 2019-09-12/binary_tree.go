@@ -1,7 +1,7 @@
 package binary_tree
 
 import (
-	tree "devmates.co/09-09-2019"
+	tree "devmates.co/2019-09-09"
 )
 
 func createTree(rootValue int, items ...*int) *tree.Node {
