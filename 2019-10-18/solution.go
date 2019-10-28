@@ -20,17 +20,17 @@ const (
 var passableOperations = [...]operation{add, sub}
 
 func (ops operationList) Allay(numbers []int) int {
-	if len(ops)+1 != len(numbers) {
-		panic(fmt.Sprintf("len(operationList)+1 != len(numbers) (%v != %v)", len(ops)+1, len(numbers)))
+	if len(ops) != len(numbers) {
+		panic(fmt.Sprintf("len(operationList) != len(numbers) (%v != %v)", len(ops), len(numbers)))
 	}
 
-	result := numbers[0]
+	var result int
 
 	for i := 0; i < len(ops); i++ {
 		if ops[i] == add {
-			result += numbers[i+1]
+			result += numbers[i]
 		} else {
-			result -= numbers[i+1]
+			result -= numbers[i]
 		}
 	}
 
@@ -48,6 +48,7 @@ func operationGenerator(operationsLen int) <-chan operationList {
 		for i := 0; i < operationsLen; i++ {
 			pools[i] = passableOperations[:]
 		}
+		fmt.Println(pools)
 
 		result := make([]operationList, 0, 1)
 		result = append(result, make(operationList, 0, operationsLen))
@@ -79,7 +80,8 @@ func operationGenerator(operationsLen int) <-chan operationList {
 func Solution(list []int, target int) int {
 	result := 0
 
-	for operations := range operationGenerator(len(list) - 1) {
+	for operations := range operationGenerator(len(list)) {
+		fmt.Println(operations, operations.Allay(list))
 		if operations.Allay(list) == target {
 			result++
 		}
